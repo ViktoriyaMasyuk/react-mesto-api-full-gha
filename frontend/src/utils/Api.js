@@ -12,21 +12,29 @@ class Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
+  _getHeaders() {
+    const jwt = localStorage.getItem('jwt');
+    return {
+      'Authorization': `Bearer ${jwt}`,
+      ...this._headers,
+    };
+  }
+
   getUserInfo() {
     return fetch(`${this.url}users/me/`, {
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._getResponse);
   }
 
   getInitialCards() {
     return fetch(`${this.url}cards/`, {
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   updateUserInfo(body) {
     return fetch(`${this.url}users/me/`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify(body),
     }).then(this._getResponse);
   }
@@ -34,32 +42,32 @@ class Api {
   addNewCard(body) {
     return fetch(`${this.url}cards/`, {
       method: "POST",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify(body),
     }).then(this._getResponse);
   }
   deleteCard(cardId) {
     return fetch(`${this.url}cards/${cardId}/`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   setLike(cardId) {
     return fetch(`${this.url}cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   unsetLike(cardId) {
     return fetch(`${this.url}cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   changeAvatar(data) {
     return fetch(`${this.url}users/me/avatar`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ avatar: data.avatar }),
     }).then(this._getResponse);
   }
