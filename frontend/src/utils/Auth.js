@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://network.mesto.nomoredomains.xyz";
 
 function getResponse(res) {
   if (res.ok) {
@@ -19,7 +19,7 @@ export const register = (email, password) => {
       password: password,
     }),
   })
-  .then(getResponse)
+    .then(getResponse)
 };
 
 //авторизация пользователя
@@ -51,7 +51,7 @@ export const getContent = (token) => {
       'Authorization': `Bearer ${token}`,
     }
   })
-  .then(getResponse)
-  .then(data => data)
-} 
+    .then(getResponse)
+    .then(data => data)
+}
 
