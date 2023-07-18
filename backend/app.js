@@ -28,9 +28,8 @@ app.use(errorLogger);
 app.use(errors());
 app.use(serverError);
 
-mongoose.connect('mongodb://localhost:27017/mestodb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect('mongodb://localhost:27017/mestodb', () => {
+  console.log('Connection successful');
 });
 
 app.listen(PORT, () => {
