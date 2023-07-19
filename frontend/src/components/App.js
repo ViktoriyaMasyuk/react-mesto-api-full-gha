@@ -192,7 +192,8 @@ function App() {
     Auth.authorize(email, password)
       .then((res) => {
         localStorage.setItem('jwt', res.token);
-        handleLogin();
+        // handleLogin();
+        setLoggedIn(true);
         navigate("/", { replace: true });
       })
       .catch((err) => {
