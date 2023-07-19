@@ -152,7 +152,7 @@ function App() {
   //обновление информации о пользователе
   function handleUpdateUser(data) {
     api
-      .updateUserInfo(data.user)
+      .updateUserInfo(data)
       .then((newUser) => {
         setCurrentUser(newUser);
         handleCloseAllPopups();
