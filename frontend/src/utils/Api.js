@@ -38,6 +38,7 @@ class Api {
   }
 
   addNewCard(body) {
+    console.log(body)
     return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
