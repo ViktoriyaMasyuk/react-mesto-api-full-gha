@@ -239,7 +239,7 @@ function App() {
               onEditProfile={handleEditProfileClick}
               onAddPlace={handleAddPlaceClick}
               onCardClick={handleCardClick}
-              cards={cards}
+              cards={cards.data}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
             />} />
