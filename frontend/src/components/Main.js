@@ -3,8 +3,6 @@ import Card from "./Card.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main(props) {
-  console.log(props);
-  console.log(props.cards.data)
   const currentUser = React.useContext(CurrentUserContext);
 
   const cardsElements = props.cards.map((card) => (
