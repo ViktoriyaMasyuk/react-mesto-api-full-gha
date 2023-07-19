@@ -41,7 +41,10 @@ class Api {
     return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        name: body.name,
+        link: body.link,
+      }),
     }).then((res) => { return this._getResponse(res) });
   }
   deleteCard(cardId) {
