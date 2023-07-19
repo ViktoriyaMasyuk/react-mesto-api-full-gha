@@ -52,8 +52,8 @@ module.exports.validationCardId = celebrate({
 });
 
 module.exports.validationCreateCard = celebrate({
-  body: Joi.object().keys({
-    name: Joi.string().min(2).max(30).required(),
-    link: Joi.string().required().custom(validationUrl),
-  }),
+  // body: Joi.object().keys({
+  name: Joi.string().min(2).max(30).required(),
+  link: Joi.string().required().custom(validationUrl),
+  // }),
 });
