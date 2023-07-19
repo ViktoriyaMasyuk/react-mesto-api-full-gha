@@ -6,7 +6,7 @@ function Main(props) {
   console.log(props);
   const currentUser = React.useContext(CurrentUserContext);
 
-  const cardsElements = props.cards.map((card) => (
+  const cardsElements = props.cards.data.map((card) => (
     <Card
       key={card._id}
       card={card}
