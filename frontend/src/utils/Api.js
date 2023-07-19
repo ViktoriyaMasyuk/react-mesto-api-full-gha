@@ -42,7 +42,7 @@ class Api {
       method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify({
-        "body": {
+        "data": {
           "name": user.name,
           "link": user.link,
         }
