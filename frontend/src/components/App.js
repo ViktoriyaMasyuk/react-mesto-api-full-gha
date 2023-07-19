@@ -42,13 +42,13 @@ function App() {
   //попап ошибки входа
   const [isInfoTooltipErrorPopupOpen, setInfoTooltipErrorPopupOpen] = useState(false);
   //статус входа в систему пользователя
-  const [isLoggedIn, setLoggedIn] = useState();
-//навигация
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  //навигация
   const navigate = useNavigate();
-//данные пользователя
-const [email, setEmail] = useState(false);
+  //данные пользователя
+  const [email, setEmail] = useState(false);
 
-//получение информации о пользоывателе и массива карточек
+  //получение информации о пользоывателе и массива карточек
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([currentUser, cards]) => {
@@ -59,7 +59,7 @@ const [email, setEmail] = useState(false);
         console.log(err);
       });
   }, []);
-//функции открытия попапов
+  //функции открытия попапов
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
@@ -81,8 +81,8 @@ const [email, setEmail] = useState(false);
   //функция изменения статуса логина
   function handleLogin() {
     setLoggedIn(true);
- } 
- //функция закрытия попапов
+  }
+  //функция закрытия попапов
   function handleCloseAllPopups() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -91,8 +91,8 @@ const [email, setEmail] = useState(false);
     setInfoTooltipResultPopupOpen(false);
     setSelectedCard({ name: "", link: "" });
   }
-  
-//функция постановки лайков
+
+  //функция постановки лайков
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
@@ -159,7 +159,7 @@ const [email, setEmail] = useState(false);
         console.error(err);
       });
   }
-//Добавление новой карточки
+  //Добавление новой карточки
   function handleAddPlace(data) {
     api
       .addNewCard(data)
@@ -171,86 +171,86 @@ const [email, setEmail] = useState(false);
         console.error(err);
       });
   }
-//регистрация пользователя
+  //регистрация пользователя
   function handleRegisterUser(email, password) {
     Auth.register(email, password)
-    .then((data) => {
-      if(data) {
-        handleTooltipResultClick();
-        console.log("sucess");
-        navigate("/sign-in", {replace: true});
-      }
-    })
-    .catch((err) => {
-      navigate("/sign-up");
-      handleTooltipErrorClick();
-      console.log(err);   
-    })
+      .then((data) => {
+        if (data) {
+          handleTooltipResultClick();
+          console.log("sucess");
+          navigate("/sign-in", { replace: true });
+        }
+      })
+      .catch((err) => {
+        navigate("/sign-up");
+        handleTooltipErrorClick();
+        console.log(err);
+      })
   }
-//авторизация пользователя
-function authorizeUser(email, password) {
-  Auth.authorize(email, password)
-    .then((res) => {
-      localStorage.setItem('jwt', res.token);
-      handleLogin();
-      navigate("/", { replace: true });
+  //авторизация пользователя
+  function authorizeUser(email, password) {
+    Auth.authorize(email, password)
+      .then((res) => {
+        localStorage.setItem('jwt', res.token);
+        handleLogin();
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         handleTooltipErrorClick();
         console.log(err);
       });
-}
-//проверка токена
-function tokenCheck() {
-  const jwt = localStorage.getItem('jwt');
-  if (jwt){
-    Auth.getContent(jwt)
-    .then((res) => {
-      if (res){
-        handleLogin();
-        setEmail(res.data.email);
-        navigate("/", {replace: true})
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-} 
+  }
+  //проверка токена
+  function tokenCheck() {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      Auth.getContent(jwt)
+        .then((res) => {
+          if (res) {
+            handleLogin();
+            setEmail(res.data.email);
+            navigate("/", { replace: true })
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
 
-useEffect(() => {
-tokenCheck();
-}, [])
+  useEffect(() => {
+    tokenCheck();
+  }, [])
 
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header 
-        emailUser={email}
-        isLoggedIn={isLoggedIn}
+        <Header
+          emailUser={email}
+          isLoggedIn={isLoggedIn}
         />
         <Routes>
-         <Route path="/" element={
-         <ProtectedRouteElement
-           element={Main}
-           isLoggedIn={isLoggedIn}
-           onEditAvatar={handleEditAvatarClick}
-           onEditProfile={handleEditProfileClick}
-           onAddPlace={handleAddPlaceClick}
-           onCardClick={handleCardClick}
-           cards={cards}
-           onCardLike={handleCardLike}
-           onCardDelete={handleCardDelete}
-           />} />  
-         <Route 
-         path="/sign-up"
-         element={<Register onRegister={handleRegisterUser}/>}
-        />
-        <Route 
-        path="/sign-in"
-        element={<Login handleAuthorize={authorizeUser} />}
-        />
+          <Route path="/" element={
+            <ProtectedRouteElement
+              element={Main}
+              isLoggedIn={isLoggedIn}
+              onEditAvatar={handleEditAvatarClick}
+              onEditProfile={handleEditProfileClick}
+              onAddPlace={handleAddPlaceClick}
+              onCardClick={handleCardClick}
+              cards={cards}
+              onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}
+            />} />
+          <Route
+            path="/sign-up"
+            element={<Register onRegister={handleRegisterUser} />}
+          />
+          <Route
+            path="/sign-in"
+            element={<Login handleAuthorize={authorizeUser} />}
+          />
 
         </ Routes >
         <Footer />
@@ -282,17 +282,17 @@ tokenCheck();
           card={selectedCard}
           onClose={handleCloseAllPopups}
         />
-        <InfoTooltip 
-        title={"Вы успешно зарегистрировались!"}
-        src={imageResult}
-        isOpen={isInfoTooltipResultPopupOpen}
-        onClose={handleCloseAllPopups}
+        <InfoTooltip
+          title={"Вы успешно зарегистрировались!"}
+          src={imageResult}
+          isOpen={isInfoTooltipResultPopupOpen}
+          onClose={handleCloseAllPopups}
         />
-        <InfoTooltip 
-        title={"Что-то пошло не так! Попробуйте еще раз!"}
-        src={imageError}
-        isOpen={isInfoTooltipErrorPopupOpen}
-        onClose={handleCloseAllPopups}
+        <InfoTooltip
+          title={"Что-то пошло не так! Попробуйте еще раз!"}
+          src={imageError}
+          isOpen={isInfoTooltipErrorPopupOpen}
+          onClose={handleCloseAllPopups}
         />
       </div>
     </CurrentUserContext.Provider>

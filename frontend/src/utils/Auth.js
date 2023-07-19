@@ -35,12 +35,12 @@ export const authorize = (email, password) => {
     }),
   })
     .then(getResponse)
-    .then((data) => {
-      if (data.token) {
-        localStorage.setItem("jwt", data.token);
-        return data;
-      }
-    })
+  // .then((data) => {
+  //   if (data.token) {
+  //     localStorage.setItem("jwt", data.token);
+  //     return data;
+  //   }
+  // })
 };
 // // отправляем запрос на роут аутентификации
 export const getContent = (token) => {
@@ -52,6 +52,5 @@ export const getContent = (token) => {
     }
   })
     .then(getResponse)
-    .then(data => data)
 }
 
