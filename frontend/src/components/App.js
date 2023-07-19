@@ -151,7 +151,6 @@ function App() {
 
   //обновление информации о пользователе
   function handleUpdateUser(data) {
-    console.log(data);
     api
       .updateUserInfo(data.user)
       .then((newUser) => {

@@ -33,7 +33,7 @@ class Api {
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: this._getHeaders(),
-      body: JSON.stringify(body),
+      body: JSON.stringify({ body }),
     }).then(this._getResponse);
   }
 
