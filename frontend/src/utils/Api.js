@@ -71,8 +71,8 @@ class Api {
   }
 }
 const api = new Api({
-  // baseUrl: "https://api.network.mesto.nomoredomains.xyz",
-  baseUrl: "127.0.0.1:3000",
+  baseUrl: "https://api.network.mesto.nomoredomains.xyz",
+  // baseUrl: "127.0.0.1:3000",
 
   headers: {
     // authorization: "ade0a831-d345-4d2c-8394-f99ed3b27f1b",

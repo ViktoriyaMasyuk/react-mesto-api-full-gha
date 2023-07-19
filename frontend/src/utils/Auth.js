@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://api.network.mesto.nomoredomains.xyz";
-export const BASE_URL = "127.0.0.1:3000";
+export const BASE_URL = "https://api.network.mesto.nomoredomains.xyz";
+// export const BASE_URL = "127.0.0.1:3000";
 
 
 function getResponse(res) {
