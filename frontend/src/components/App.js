@@ -176,8 +176,9 @@ function App() {
   }
   //Добавление новой карточки
   function handleAddPlace(data) {
+    console.log(data);
     api
-      .addNewCard(data.data)
+      .addNewCard(data)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         handleCloseAllPopups();
