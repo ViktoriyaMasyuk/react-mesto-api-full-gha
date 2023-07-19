@@ -222,8 +222,11 @@ function tokenCheck() {
 }
 
 useEffect(() => {
-  tokenCheck();
-}, [])
+  if (isLoggedIn === true) {
+    tokenCheck();
+  } [isLoggedIn, navigate]
+},
+);
 
 
 return (
