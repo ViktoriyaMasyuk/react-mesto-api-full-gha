@@ -31,9 +31,9 @@ module.exports.deleteCard = (req, res, next) => {
 
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
-  const owner = req.user;
+  //const owner = req.user;
 
-  Card.create({ name, link, owner })
+  Card.create({ name, link })
     .then((card) => res.status(201).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
