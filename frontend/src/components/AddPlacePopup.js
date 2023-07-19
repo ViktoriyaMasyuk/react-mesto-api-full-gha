@@ -25,7 +25,6 @@ const link = useForm('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(name, link);
     onAddPlace({
       name: name.values.name,
       link: link.values.link,
