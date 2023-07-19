@@ -42,8 +42,10 @@ class Api {
       method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify({
-        "name": user.name,
-        "link": user.link,
+        "body": {
+          "name": user.name,
+          "link": user.link,
+        }
       }),
     }).then(this._getResponse);
   }
