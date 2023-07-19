@@ -165,7 +165,7 @@ function App() {
   //обновление аватара
   function handleUpdateAvatar(data) {
     api
-      .changeAvatar(data.user)
+      .changeAvatar(data)
       .then((newAvatar) => {
         setCurrentUser(newAvatar);
         handleCloseAllPopups();
@@ -176,7 +176,6 @@ function App() {
   }
   //Добавление новой карточки
   function handleAddPlace(data) {
-    console.log(data);
     api
       .addNewCard(data)
       .then((newCard) => {
