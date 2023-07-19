@@ -1,5 +1,8 @@
 const allowedCors = [
-  'localhost:3000',
+  'http://127.0.0.1:3000',
+  'localhost:3001',
+  'http://127.0.0.1:443',
+  'http://192.168.1.154:3001',
   'http://network.mesto.nomoredomains.xyz',
   'https://network.mesto.nomoredomains.xyz',
 ];

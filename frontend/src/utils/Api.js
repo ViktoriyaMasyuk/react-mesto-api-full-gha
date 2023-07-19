@@ -19,18 +19,18 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this.url}/users/me/`, {
+    return fetch(`${this.url}/users/me`, {
       headers: this._getHeaders(),
     }).then(this._getResponse);
   }
 
   getInitialCards() {
-    return fetch(`${this.url}/cards/`, {
+    return fetch(`${this.url}/cards`, {
       headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   updateUserInfo(body) {
-    return fetch(`${this.url}/users/me/`, {
+    return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify(body),
@@ -38,32 +38,32 @@ class Api {
   }
 
   addNewCard(body) {
-    return fetch(`${this.url}/cards/`, {
+    return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify(body),
     }).then(this._getResponse);
   }
   deleteCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/`, {
+    return fetch(`${this.url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   setLike(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes/`, {
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   unsetLike(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes/`, {
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._getHeaders(),
     }).then(this._getResponse);
   }
   changeAvatar(data) {
-    return fetch(`${this.url}/users/me/avatar/`, {
+    return fetch(`${this.url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify({ avatar: data.avatar }),
@@ -71,7 +71,9 @@ class Api {
   }
 }
 const api = new Api({
-  baseUrl: "https://api.network.mesto.nomoredomains.xyz",
+  // baseUrl: "https://api.network.mesto.nomoredomains.xyz",
+  baseUrl: "127.0.0.1:3000",
+
   headers: {
     // authorization: "ade0a831-d345-4d2c-8394-f99ed3b27f1b",
     "Content-Type": "application/json",

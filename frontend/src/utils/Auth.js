@@ -1,4 +1,6 @@
-export const BASE_URL = "https://api.network.mesto.nomoredomains.xyz";
+// export const BASE_URL = "https://api.network.mesto.nomoredomains.xyz";
+export const BASE_URL = "127.0.0.1:3000";
+
 
 function getResponse(res) {
   if (res.ok) {
@@ -9,7 +11,7 @@ function getResponse(res) {
 
 //регистрация пользователя
 export const register = (email, password) => {
-  return fetch(`${BASE_URL}/signup/`, {
+  return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +26,8 @@ export const register = (email, password) => {
 
 //авторизация пользователя
 export const authorize = (email, password) => {
-  return fetch(`${BASE_URL}/signin/`, {
+  return fetch(`${BASE_URL}/signin`, {
+
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +47,7 @@ export const authorize = (email, password) => {
 };
 // // отправляем запрос на роут аутентификации
 export const getContent = (token) => {
-  return fetch(`${BASE_URL}/users/me/`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
