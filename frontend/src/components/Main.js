@@ -7,15 +7,16 @@ function Main(props) {
   console.log(props.cards.data);
   const currentUser = React.useContext(CurrentUserContext);
 
-  // const cardsElements = props.cards.data.map((card) => (
-  //   <Card
-  //     key={card._id}
-  //     card={card}
-  //     onCardClick={props.onCardClick}
-  //     onCardLike={props.onCardLike}
-  //     onCardDelete={props.onCardDelete}
-  //   />
-  // ));
+  const cardsElements = props.cards.data.map((card) => (
+    <Card
+      key={card._id}
+      card={card}
+      onCardClick={props.onCardClick}
+      onCardLike={props.onCardLike}
+      onCardDelete={props.onCardDelete}
+    />
+  ));
+  console.log(cardsElements);
 
   return (
     <main>
@@ -43,18 +44,7 @@ function Main(props) {
         />
       </section>
       <section className="elements">
-        {props.cards.data.map((card, id) => (
-          <Card
-            key={id}
-            card={card}
-            link={card.link}
-            name={card.name}
-            likes={card.likes.length}
-            onCardClick={props.onCardClick}
-            onCardLike={props.onCardLike}
-            onCardDelete={props.onCardDelete}
-          />
-        ))}
+        {cardsElements}
       </section>
     </main>
   );
