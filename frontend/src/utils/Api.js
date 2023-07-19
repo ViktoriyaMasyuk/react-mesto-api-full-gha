@@ -21,13 +21,13 @@ class Api {
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
       headers: this._getHeaders(),
-    }).then(this._getResponse.user);
+    }).then(this._getResponse);
   }
 
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       headers: this._getHeaders(),
-    }).then(this._getResponse.data);
+    }).then(this._getResponse);
   }
   updateUserInfo(body) {
     return fetch(`${this.url}/users/me`, {
