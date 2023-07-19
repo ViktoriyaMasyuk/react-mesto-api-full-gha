@@ -48,6 +48,11 @@ function App() {
   //данные пользователя
   const [email, setEmail] = useState(false);
 
+  useEffect(() => {
+
+    tokenCheck();
+  }, [])
+
 
   useEffect(() => {
     if (isLoggedIn === true) {
@@ -55,6 +60,7 @@ function App() {
     }
   }, [isLoggedIn, navigate]);
   //получение информации о пользоывателе и массива карточек
+
   useEffect(() => {
     if (isLoggedIn === true) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -227,10 +233,7 @@ function App() {
     }
   }
 
-  useEffect(() => {
 
-    tokenCheck();
-  }, [])
 
 
   return (
