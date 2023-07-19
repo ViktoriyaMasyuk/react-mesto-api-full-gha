@@ -4,9 +4,10 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main(props) {
   console.log(props);
+  console.log(props.cards.data);
   const currentUser = React.useContext(CurrentUserContext);
 
-  const cardsElements = props.cards.data.map((card) => (
+  const cardsElements = props.cards.map((card) => (
     <Card
       key={card._id}
       card={card}
