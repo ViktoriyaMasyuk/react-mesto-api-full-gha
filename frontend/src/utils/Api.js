@@ -33,10 +33,7 @@ class Api {
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: this._getHeaders(),
-      body: JSON.stringify({
-        name: body.name,
-        link: body.link,
-      }),
+      body: JSON.stringify(body),
     }).then(this._getResponse);
   }
 
@@ -44,7 +41,10 @@ class Api {
     return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        name: body.name,
+        link: body.link,
+      }),
     }).then(this._getResponse);
   }
   deleteCard(cardId) {
