@@ -115,8 +115,11 @@ function App() {
       api
         .setLike(card._id)
         .then((newCard) => {
-          setCards((state) =>
-            state.map((c) => (c === card._id ? newCard : c))
+          setCards((state) => {
+            console.log(state);
+            state.map((c) => (c === card._id ? newCard : c)
+            )
+          }
           );
         })
         .catch((err) => {
