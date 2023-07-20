@@ -116,6 +116,10 @@ function App() {
         .setLike(card._id)
         .then((newCard) => {
           setCards((state) => {
+            console.log('new card')
+            console.log(newCard)
+            console.log('state')
+            console.lot(state)
             state.map((c) => (c._id === card._id ? newCard.data : c))
           });
         })
