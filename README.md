@@ -9,8 +9,9 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.15.116
 
-Frontend https://...
 
-Backend https://...
+Frontend https://network.mesto.nomoredomains.xyz/
+
+Backend https://api.network.mesto.nomoredomains.xyz/
