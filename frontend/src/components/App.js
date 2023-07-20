@@ -117,7 +117,7 @@ function App() {
         .then((newCard) => {
           setCards((state) => {
             console.log('new card')
-            console.log(newCard)
+            console.log(newCard.data)
             console.log('state')
             console.log(state)
             console.log('card')
