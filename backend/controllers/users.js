@@ -33,7 +33,8 @@ module.exports.getUserId = (req, res, next) => {
 };
 
 module.exports.getMe = (req, res, next) => {
-  User.findById(req.user._id)
+  const { id } = req.params;
+  User.findById(id)
     .orFail(() => { throw new NotFound('Пользователь с указанным _id не найден.'); })
     .then((user) => res.status(200).send({ user }))
     .catch((err) => {
