@@ -109,7 +109,6 @@ function App() {
 
   //функция постановки лайков
   function handleCardLike(card) {
-    console.log(card);
     const isLiked = card.likes.some((i) => i === currentUser._id);
 
     if (!isLiked) {
@@ -117,7 +116,7 @@ function App() {
         .setLike(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c === card._id ? newCard._id : c))
+            state.map((c) => (c === card._id ? newCard : c._id))
           );
         })
         .catch((err) => {
@@ -128,7 +127,7 @@ function App() {
         .unsetLike(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c === card._id ? newCard._id : c))
+            state.map((c) => (c === card._id ? newCard._id : c._id))
           );
         })
         .catch((err) => {
