@@ -120,6 +120,8 @@ function App() {
             console.log(newCard)
             console.log('state')
             console.log(state)
+            console.log('card')
+            console.log(card)
             state.map((c) => (c._id === card._id ? newCard.data : c))
           });
         })
