@@ -119,7 +119,7 @@ function App() {
             console.log('new card')
             console.log(newCard)
             console.log('state')
-            console.lot(state)
+            console.log(state)
             state.map((c) => (c._id === card._id ? newCard.data : c))
           });
         })
