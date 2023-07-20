@@ -45,8 +45,9 @@ class Api {
         link: body.link,
         name: body.name,
       }),
-    }).then((res) => { return this._getResponse(res) });
+    }).then(this._getResponse);
   }
+  
   deleteCard(cardId) {
     return fetch(`${this.url}/cards/${cardId}`, {
       method: "DELETE",
