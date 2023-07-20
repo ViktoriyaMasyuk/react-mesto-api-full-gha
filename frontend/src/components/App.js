@@ -109,6 +109,7 @@ function App() {
 
   //функция постановки лайков
   function handleCardLike(card) {
+    console.log(card);
     const isLiked = card.likes.some((i) => i === currentUser._id);
 
     if (!isLiked) {
