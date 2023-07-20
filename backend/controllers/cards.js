@@ -4,8 +4,8 @@ const NotFound = require('../errors/NotFoundError');
 const Forbidden = require('../errors/ForbiddenError');
 
 module.exports.getCards = (req, res, next) => {
-  Card.find({})
-    .then((cards) => res.send({ data: cards.sort({ createdAt: 1 }) }))
+  Card.find({}).sort({ createdAt: 1 })
+    .then((cards) => res.send({ data: cards }))
     .catch(next);
 };
 
