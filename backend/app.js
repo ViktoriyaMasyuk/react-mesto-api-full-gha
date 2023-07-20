@@ -27,7 +27,7 @@ app.use(routes);
 app.use(errorLogger);
 app.use(errors());
 app.use(serverError);
-app.use((req, res, next) => { console.log(req.body); next(); })
+app.use((req, res, next) => { console.log(req.body); next(); });
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
