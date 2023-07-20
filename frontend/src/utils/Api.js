@@ -41,10 +41,10 @@ class Api {
     return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
-      body: JSON.stringify(
-        body.link,
-        body.name
-        ),
+      body: JSON.stringify({
+        link: body.link,
+        name: body.name,
+      }),
     }).then((res) => { return this._getResponse(res) });
   }
   deleteCard(cardId) {
