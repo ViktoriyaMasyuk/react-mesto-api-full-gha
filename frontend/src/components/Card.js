@@ -7,7 +7,7 @@ function Card(props) {
   const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
   console.log("isOwn")
   console.log(isOwn)
-  console.log(card.owner)
+  console.log(props.card.owner)
   console.log(currentUser)
 
   const cardLikeButtonClassName = `card__like ${isLiked && "card__like_active"
