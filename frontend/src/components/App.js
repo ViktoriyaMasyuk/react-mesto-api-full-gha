@@ -116,11 +116,10 @@ function App() {
         .setLike(card._id)
         .then((newCard) => {
           setCards((state) => {
+            console.log(card);
             console.log(state);
-            state.map((c) => (c === card._id ? newCard : c)
-            )
-          }
-          );
+            state.map((c) => (c._id === card._id ? newCard : c))
+          });
         })
         .catch((err) => {
           console.error(err);
