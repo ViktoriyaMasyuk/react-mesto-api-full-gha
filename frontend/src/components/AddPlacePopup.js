@@ -14,14 +14,14 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   //   setLink(e.target.value);
   // }
 
-//   React.useEffect(() => {
-//     setName("");
-//     setLink("");
-//   }, [isOpen]);
+  //   React.useEffect(() => {
+  //     setName("");
+  //     setLink("");
+  //   }, [isOpen]);
 
 
-const name = useForm('');
-const link = useForm('');
+  const name = useForm('');
+  const link = useForm('');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,9 +29,9 @@ const link = useForm('');
       name: name.values.name,
       link: link.values.link,
     });
- }
- 
- const {values, handleChange, errors, isValid, setValues, resetForm} = useFormAndValidation();
+  }
+
+  const { values, handleChange, errors, isValid, setValues, resetForm } = useFormAndValidation();
 
   return (
     <PopupWithForm
@@ -42,7 +42,7 @@ const link = useForm('');
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      isValid={values, handleChange, errors, isValid, setValues, resetForm}
+      isValid={[values, handleChange, errors, isValid, setValues, resetForm]}
     >
       <>
         <input
@@ -71,7 +71,7 @@ const link = useForm('');
           //value={link || ""}
           value={link.value}
           onChange={link.handleChange}
-          
+
         />
         <span className="form__input-error email-input-error" />
       </>
