@@ -122,7 +122,7 @@ function App() {
             console.log(state)
             console.log('card')
             console.log(card)
-            state.map((c) => (c._id === card._id ? c : newCard.data))
+            state.map((c) => (c._id === card._id ? newCard : c))
           });
         })
         .catch((err) => {
@@ -133,7 +133,7 @@ function App() {
         .unsetLike(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c === card._id ? newCard.data : c))
+            state.map((c) => (c === card._id ? newCard : c))
           );
         })
         .catch((err) => {
