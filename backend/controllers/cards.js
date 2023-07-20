@@ -13,9 +13,9 @@ module.exports.deleteCard = (req, res, next) => {
   Card.findById(req.params.id)
     .orFail(() => { throw new NotFound('Передан некорректный id карточки'); })
     .then((card) => {
-      // if (!(card.owner.toJSON() === req.user._id)) {
-      //   throw new Forbidden('Нет доступа удалять карточки других пользователей.');
-      // }
+      if (!(card.owner.toJSON() === req.user._id)) {
+        throw new Forbidden('Нет доступа удалять карточки других пользователей.');
+      }
       return Card.findByIdAndRemove(req.params.id)
         .then(() => res.status(200).send(card))
         .catch(next);
