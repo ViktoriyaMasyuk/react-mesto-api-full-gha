@@ -1,6 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { useFormAndValidation } from "../hooks/useFormAndValidation";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const [avatar, setAvatar] = React.useState("");
@@ -20,7 +21,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
       avatar: avatar,
     });
   }
-
+  const { values, handleChange, errors, isValid, setValues, resetForm } = useFormAndValidation();
   return (
     <PopupWithForm
       name={"update-avatar"}
@@ -30,6 +31,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isValid={[values, handleChange, errors, isValid, setValues, resetForm]}
     >
       <>
         <input
