@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -14,9 +15,10 @@ function NavBar(props) {
     return (
         <div className="header__user-info">
             <p className="header__email">{props.emailUser}</p>
-            <a className="header__link" 
+            {/* <a className="header__link" 
             src="/sign-in"
-            onClick={props.onClick}>Выйти</a>
+            onClick={props.onClick}>Выйти</a> */}
+            <Link to="/sign-in" className="header__link" type="button" onClick={props.onClick}>Выйти</Link>
         </div>
     )
 }
