@@ -236,7 +236,7 @@ function App() {
   }
 
 // Функция выхода
-function signOut(){
+function signOut() {
   console.log('hey');
   localStorage.removeItem('jwt');
   handleLogin();
