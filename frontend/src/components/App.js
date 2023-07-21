@@ -250,6 +250,7 @@ function signOut(){
         <Header
           emailUser={email}
           isLoggedIn={isLoggedIn}
+          signOut={signOut}
         />
         <Routes>
           <Route path="/" element={

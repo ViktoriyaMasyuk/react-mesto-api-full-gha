@@ -15,7 +15,7 @@ function NavBar(props) {
             <p className="header__email">{props.emailUser}</p>
             <a className="header__link" 
             src="/sign-in"
-            onClick={signOut}>Выйти</a>
+            onClick={props.signOut}>Выйти</a>
         </div>
     )
 }
