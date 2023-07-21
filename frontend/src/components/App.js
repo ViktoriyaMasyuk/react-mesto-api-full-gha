@@ -209,6 +209,7 @@ function App() {
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         handleLogin();
+        setEmail(email);
         navigate("/");
       })
       .catch((err) => {
