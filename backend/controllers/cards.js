@@ -48,6 +48,7 @@ module.exports.likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
     req.params.id,
     { $addToSet: { likes: req.user._id } },
+    { new: true },
   )
     .orFail(() => {
       throw new NotFound('Не найдена карточка для постановки лайка');
