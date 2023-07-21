@@ -234,26 +234,26 @@ function App() {
   }
 
 // Функция выхода
-// function signOut() {
-//   navigate("/sign-in");
-//   console.log('hey');
-//   handleLogin();
-//   setEmail(false);
-//   localStorage.removeItem('jwt');
-// }
-class signOut extends Component {
-
-  redirect(){
-    this.props.navigate('/sign-in')
-  }
-  render() {
-    navigate("/sign-in");
-    console.log('hey');
-    handleLogin();
-    setEmail(false);
-    localStorage.removeItem('jwt');
-  }
+function signOut() {
+  //navigate("/sign-in");
+  console.log('hey');
+  handleLogin();
+  setEmail(false);
+  localStorage.removeItem('jwt');
 }
+// class signOut extends Component {
+
+//   redirect(){
+//     this.props.navigate('/sign-in')
+//   }
+//   render() {
+//     navigate("/sign-in");
+//     console.log('hey');
+//     handleLogin();
+//     setEmail(false);
+//     localStorage.removeItem('jwt');
+//   }
+// }
 
 export default withNavigation(BlogPost);
 
