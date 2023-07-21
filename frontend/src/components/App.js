@@ -225,7 +225,8 @@ function App() {
         .then((res) => {
           if (res) {
             handleLogin();
-            setEmail(res.data.email);
+            console.log(res);
+            setEmail(res.email);
             navigate("/", { replace: true })
           }
         })
