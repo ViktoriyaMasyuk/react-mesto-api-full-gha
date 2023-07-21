@@ -226,7 +226,7 @@ function App() {
           if (res) {
             handleLogin();
             console.log(res);
-            setEmail(res.email);
+            setEmail(res.user.email);
             navigate("/", { replace: true })
           }
         })
