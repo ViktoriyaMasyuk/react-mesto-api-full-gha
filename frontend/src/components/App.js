@@ -240,7 +240,7 @@ function signOut() {
   console.log('hey');
   localStorage.removeItem('jwt');
   handleLogin();
-  //navigate('/sign-in');
+  navigate('/sign-in');
   setEmail(false);
 }
 
@@ -250,7 +250,7 @@ function signOut() {
         <Header
           emailUser={email}
           isLoggedIn={isLoggedIn}
-          signOut={signOut}
+          onClick={signOut}
         />
         <Routes>
           <Route path="/" element={
