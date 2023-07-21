@@ -255,8 +255,6 @@ function signOut() {
 //   }
 // }
 
-export default withNavigation(BlogPost);
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
