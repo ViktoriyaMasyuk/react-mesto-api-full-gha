@@ -225,7 +225,6 @@ function App() {
         .then((res) => {
           if (res) {
             handleLogin();
-            console.log(res);
             setEmail(res.user.email);
             navigate("/", { replace: true })
           }
@@ -238,6 +237,7 @@ function App() {
 
 // Функция выхода
 function signOut(){
+  console.log('hey');
   localStorage.removeItem('jwt');
   handleLogin();
   navigate('/sign-in');
