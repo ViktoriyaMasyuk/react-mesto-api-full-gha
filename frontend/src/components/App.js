@@ -44,7 +44,7 @@ function App() {
   //статус входа в систему пользователя
   const [isLoggedIn, setLoggedIn] = useState(false);
   //навигация
-  const navigate = useNavigate();
+  const navigate = Navigate();
   //данные пользователя
   const [email, setEmail] = useState(false);
 
@@ -235,7 +235,7 @@ function App() {
 
 // Функция выхода
 function signOut() {
-  navigate("/sign-up");
+  navigate("/sign-in");
   console.log('hey');
   handleLogin();
   setEmail(false);
