@@ -14,9 +14,9 @@ function NavBar(props) {
     return (
         <div className="header__user-info">
             <p className="header__email">{props.emailUser}</p>
-            <button className="header__link" 
-            //src="/sign-in"
-            onClick={props.onClick}>Выйти</button>
+            <a className="header__link" 
+            src="/sign-in"
+            onClick={props.onClick}>Выйти</a>
         </div>
     )
 }

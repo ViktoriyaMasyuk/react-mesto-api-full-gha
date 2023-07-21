@@ -193,14 +193,12 @@ function App() {
       .then((data) => {
         if (data) {
           handleTooltipResultClick();
-          console.log("sucess");
           navigate("/sign-in", { replace: true });
         }
       })
       .catch((err) => {
         navigate("/sign-up");
         handleTooltipErrorClick();
-        console.log(err);
       })
   }
   //авторизация пользователя
@@ -238,10 +236,11 @@ function App() {
 // Функция выхода
 function signOut() {
   console.log('hey');
-  localStorage.removeItem('jwt');
   handleLogin();
-  navigate("/sign-in", { replace: true });
   setEmail(false);
+  navigate("/sign-up");
+  localStorage.removeItem('jwt');
+  
 }
 
   return (
