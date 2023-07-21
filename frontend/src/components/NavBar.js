@@ -6,9 +6,10 @@ function NavBar(props) {
 
   //  const navigate = useNavigate();
   // function signOut(){
+  //      navigate('/sign-in');
   //   props.isLoggedIn(false);
   //   localStorage.removeItem('jwt');
-  //   navigate('/sign-in');
+    
   // }
     return (
         <div className="header__user-info">
