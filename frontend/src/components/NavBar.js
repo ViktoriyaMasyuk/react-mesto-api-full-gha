@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function NavBar(props) {
 
     const navigate = useNavigate();
-  function signOut(e){
+  function signOut(){
     props.isLoggedIn(false);
     localStorage.removeItem('jwt');
     navigate('/sign-in');
