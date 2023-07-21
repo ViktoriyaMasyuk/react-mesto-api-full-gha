@@ -209,6 +209,7 @@ function App() {
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         handleLogin();
+        setEmail(email);
         navigate("/");
       })
       .catch((err) => {
@@ -235,8 +236,13 @@ function App() {
     }
   }
 
-
-
+// Функция выхода
+function signOut(){
+  setLoggedIn(false);
+  localStorage.removeItem('jwt');
+  navigate('/sign-in');
+  setEmail(null);
+}
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
