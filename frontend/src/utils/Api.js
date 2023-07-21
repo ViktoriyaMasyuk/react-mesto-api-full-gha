@@ -76,8 +76,5 @@ class Api {
 }
 const api = new Api({
   baseUrl: "https://api.network.mesto.nomoredomains.xyz",
-  // baseUrl: "127.0.0.1:3000",
-
-
 });
 export default api;
