@@ -44,7 +44,7 @@ function App() {
   //статус входа в систему пользователя
   const [isLoggedIn, setLoggedIn] = useState(false);
   //навигация
-  const navigate = Navigate();
+  const navigate = useNavigate();
   //данные пользователя
   const [email, setEmail] = useState(false);
 
