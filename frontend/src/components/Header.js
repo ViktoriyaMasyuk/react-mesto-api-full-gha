@@ -25,6 +25,7 @@ function Header(props) {
       element={<NavBar
            emailUser={props.emailUser}
            isLoggedIn={props.isLoggedIn}
+           onClick={props.onClick}
            />}
            />
       </Routes>
