@@ -238,10 +238,10 @@ function App() {
 
 // Функция выхода
 function signOut(){
-  setLoggedIn(false);
   localStorage.removeItem('jwt');
+  handleLogin();
   navigate('/sign-in');
-  setEmail(null);
+  setEmail(false);
 }
 
   return (
