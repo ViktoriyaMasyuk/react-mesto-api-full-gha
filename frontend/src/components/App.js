@@ -235,12 +235,11 @@ function App() {
 
 // Функция выхода
 function signOut() {
+  navigate("/sign-up");
   console.log('hey');
   handleLogin();
   setEmail(false);
-  navigate("/sign-up");
   localStorage.removeItem('jwt');
-  
 }
 
   return (
