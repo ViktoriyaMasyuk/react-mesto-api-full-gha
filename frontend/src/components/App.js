@@ -111,7 +111,6 @@ function App() {
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i === currentUser._id);
     card.preventDefault();
-
     if (!isLiked) {
       api
         .setLike(card._id)
@@ -233,13 +232,13 @@ function App() {
     }
   }
 
-// Функция выхода
-function signOut() {
-  setLoggedIn(false);
-  setEmail(false);
-  navigate("/sign-in");
-  localStorage.removeItem('jwt');
-}
+  // Функция выхода
+  function signOut() {
+    setLoggedIn(false);
+    setEmail(false);
+    navigate("/sign-in");
+    localStorage.removeItem('jwt');
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
