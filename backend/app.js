@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const rateLimit = require('express-rate-limit');
 const routes = require('./routes/index');
 const { serverError } = require('./middlewares/serverError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
-const rateLimit = require('express-rate-limit')
 
 const { PORT = 3000, BASE_PATH } = process.env;
 const app = express();
