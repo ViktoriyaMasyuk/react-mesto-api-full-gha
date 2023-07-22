@@ -18,7 +18,7 @@ function NavBar(props) {
             {/* <a className="header__link" 
             src="/sign-in"
             onClick={props.onClick}>Выйти</a> */}
-            <Link to="/sign-in" className="header__link" type="button" onClick={props.onClick}>Выйти</Link>
+            element={ <Link to="/sign-in" className="header__link" type="button" onClick={props.onClick}>Выйти</Link>}
         </div>
     )
 }
