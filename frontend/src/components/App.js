@@ -235,10 +235,9 @@ function App() {
 
 // Функция выхода
 function signOut() {
-  navigate("/sign-in");
-  console.log('hey');
-  handleLogin();
+  setLoggedIn(false);
   setEmail(false);
+  navigate("/sign-in");
   localStorage.removeItem('jwt');
 }
 // class signOut extends Component {
