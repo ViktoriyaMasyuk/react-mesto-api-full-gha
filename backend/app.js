@@ -8,6 +8,7 @@ const routes = require('./routes/index');
 const { serverError } = require('./middlewares/serverError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
+const rateLimit = require('express-rate-limit')
 
 const { PORT = 3000, BASE_PATH } = process.env;
 const app = express();
@@ -22,6 +23,14 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use(limiter);
 
 app.use(requestLogger);
 app.use(routes);

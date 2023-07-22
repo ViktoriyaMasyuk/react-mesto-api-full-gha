@@ -240,19 +240,6 @@ function signOut() {
   navigate("/sign-in");
   localStorage.removeItem('jwt');
 }
-// class signOut extends Component {
-
-//   redirect(){
-//     this.props.navigate('/sign-in')
-//   }
-//   render() {
-//     navigate("/sign-in");
-//     console.log('hey');
-//     handleLogin();
-//     setEmail(false);
-//     localStorage.removeItem('jwt');
-//   }
-// }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
