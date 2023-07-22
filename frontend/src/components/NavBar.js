@@ -20,7 +20,7 @@ function NavBar(props) {
             onClick={props.onClick}>Выйти</a> */}
             <Routes>
               <Route path="/"
-                element={ <Link to="/sign-in" className="header__link" type="button" >Выйти</Link>}
+                element={ <Link to="/sign-in" className="header__link" type="button" onClick={props.onClick}>Выйти</Link>}
               />
             </Routes>
         </div>

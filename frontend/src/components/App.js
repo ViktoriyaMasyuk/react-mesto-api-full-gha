@@ -235,7 +235,7 @@ function App() {
 
 // Функция выхода
 function signOut() {
-  //navigate("/sign-in");
+  navigate("/sign-in");
   console.log('hey');
   handleLogin();
   setEmail(false);
